@@ -10,13 +10,14 @@ from qutebrowser.utils import log
 IDLE_HIDE_IN_SECOND = 5
 IDLE_CHECK_INTERVAL_IN_MS = 1000
 
+
 class CursorHide(QObject):
     hidden = False
     lastMoved = 0.0
 
     def __init__(self):
         super().__init__()
-        self.timer=QTimer(self)
+        self.timer = QTimer(self)
         self.timer.timeout.connect(self.hide_when_idle)
         self.timer.start(IDLE_CHECK_INTERVAL_IN_MS)
 
@@ -45,11 +46,14 @@ class CursorHide(QObject):
                 self.show_cursor()
         return False
 
+
 cursor_hide = CursorHide()
+
 
 @cmdutils.register()
 def hide_cursor() -> None:
     cursor_hide.hide_cursor()
+
 
 @cmdutils.register()
 def show_cursor() -> None:
