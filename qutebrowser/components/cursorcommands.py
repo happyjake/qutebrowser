@@ -52,11 +52,13 @@ cursor_hide = CursorHide()
 
 @cmdutils.register()
 def hide_cursor() -> None:
+    "hide cursor."
     cursor_hide.hide_cursor()
 
 
 @cmdutils.register()
 def show_cursor() -> None:
+    "show cursor."
     cursor_hide.show_cursor()
 
 
