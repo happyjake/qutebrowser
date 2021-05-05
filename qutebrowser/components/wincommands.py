@@ -47,9 +47,9 @@ def window_pip() -> None:
     point.setY(point.y() - 10)
 
     geo = win.geometry()
-    height = 240
-    width = int(height / 9 * 16)
-    geo.setHeight(240)
+    height = 256
+    width = 382
+    geo.setHeight(height)
     geo.setWidth(width)
 
     geo.moveBottomRight(point)
