@@ -1,6 +1,7 @@
 from typing import cast
 
 from PyQt5.QtCore import Qt
+from PyQt5 import QtWidgets
 
 from qutebrowser.api import cmdutils
 from qutebrowser.utils import objreg
@@ -33,3 +34,24 @@ def window_unpin() -> None:
         )
     )
     win.show()
+
+
+@cmdutils.register()
+def window_pip() -> None:
+    """move window to PIP position."""
+    log.misc.info("window move")
+    win = objreg.last_visible_window()
+    screenSize = QtWidgets.QDesktopWidget().screenGeometry(-1)
+    point = screenSize.bottomRight()
+    point.setX(point.x() - 10)
+    point.setY(point.y() - 10)
+
+    geo = win.geometry()
+    height = 240
+    width = int(height / 9 * 16)
+    geo.setHeight(240)
+    geo.setWidth(width)
+
+    geo.moveBottomRight(point)
+
+    win.setGeometry(geo)
