@@ -8,12 +8,21 @@ authors = ["happyjake <happyjake@gmail.com>"]
 python = "^3.9"
 Jinja2 = "^2.11.3"
 PyYAML = "^5.4.1"
+adblock = "^0.4.4"
+colorama = "^0.4.4"
+importlib-metadata = "^4.0.1"
+importlib-resources = "^5.1.2"
+MarkupSafe = "^1.1.1"
+Pygments = "^2.9.0"
+typing-extensions = "^3.10.0"
+zipp = "^3.4.1"
 
 [tool.poetry.dev-dependencies]
 requests = "^2.25.1"
 asciidoc = "^10.0.0-alpha.2"
 Pygments = "^2.9.0"
 tox = "^3.23.1"
+pyinstaller = "^4.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
