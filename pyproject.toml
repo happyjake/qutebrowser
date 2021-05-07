@@ -11,6 +11,9 @@ PyYAML = "^5.4.1"
 
 [tool.poetry.dev-dependencies]
 requests = "^2.25.1"
+asciidoc = "^10.0.0-alpha.2"
+Pygments = "^2.9.0"
+tox = "^3.23.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
