@@ -30,12 +30,12 @@ class CursorHide(QObject):
             self.hide_cursor()
 
     def hide_cursor(self) -> None:
-        log.mouse.info("hide cursor")
+        log.mouse.debug("hide cursor")
         QApplication.setOverrideCursor(Qt.BlankCursor)
         self.hidden = True
 
     def show_cursor(self) -> None:
-        log.mouse.info("show cursor")
+        log.mouse.debug("show cursor")
         QApplication.restoreOverrideCursor()
         self.hidden = False
 

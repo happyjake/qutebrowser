@@ -11,7 +11,7 @@ from qutebrowser.utils import log
 @cmdutils.register()
 def window_pin() -> None:
     """pin window to stay always on top."""
-    log.misc.info("window pin on top")
+    log.misc.debug("window pin on top")
     win = objreg.last_visible_window()
     win.setWindowFlags(
         cast(
@@ -25,7 +25,7 @@ def window_pin() -> None:
 @cmdutils.register()
 def window_unpin() -> None:
     """unpin window."""
-    log.misc.info("window unpin")
+    log.misc.debug("window unpin")
     win = objreg.last_visible_window()
     win.setWindowFlags(
         cast(
@@ -39,7 +39,7 @@ def window_unpin() -> None:
 @cmdutils.register()
 def window_pip() -> None:
     """move window to PIP position."""
-    log.misc.info("window move")
+    log.misc.debug("window move")
     win = objreg.last_visible_window()
     screenSize = QtWidgets.QDesktopWidget().screenGeometry(-1)
     point = screenSize.bottomRight()
