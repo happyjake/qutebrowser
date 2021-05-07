@@ -68,6 +68,7 @@ possible to run or bind multiple commands by separating them with `;;`.
 |<<fullscreen,fullscreen>>|Toggle fullscreen mode.
 |<<greasemonkey-reload,greasemonkey-reload>>|Re-read Greasemonkey scripts from disk.
 |<<help,help>>|Show help about a command or setting.
+|<<hide-cursor,hide-cursor>>|hide cursor.
 |<<hint,hint>>|Start hinting.
 |<<history,history>>|Show browsing history.
 |<<history-clear,history-clear>>|Clear all browsing history.
@@ -116,6 +117,7 @@ possible to run or bind multiple commands by separating them with `;;`.
 |<<set,set>>|Set an option.
 |<<set-cmd-text,set-cmd-text>>|Preset the statusbar to some text.
 |<<set-mark,set-mark>>|Set a mark at the current scroll position in the current tab.
+|<<show-cursor,show-cursor>>|show cursor.
 |<<spawn,spawn>>|Spawn an external command.
 |<<stop,stop>>|Stop loading in the current/[count]th tab.
 |<<tab-clone,tab-clone>>|Duplicate the current tab.
@@ -135,6 +137,9 @@ possible to run or bind multiple commands by separating them with `;;`.
 |<<version,version>>|Show version information.
 |<<view-source,view-source>>|Show the source of the current page in a new tab.
 |<<window-only,window-only>>|Close all windows except for the current one.
+|<<window-pin,window-pin>>|pin window to stay always on top.
+|<<window-pip,window-pip>>|move window to PIP position.
+|<<window-unpin,window-unpin>>|unpin window.
 |<<yank,yank>>|Yank (copy) something to the clipboard or primary selection.
 |<<zoom,zoom>>|Set the zoom level for the current tab.
 |<<zoom-in,zoom-in>>|Increase the zoom level for the current tab.
@@ -604,6 +609,10 @@ Show help about a command or setting.
 * +*-t*+, +*--tab*+: Open in a new tab.
 * +*-b*+, +*--bg*+: Open in a background tab.
 * +*-w*+, +*--window*+: Open in a new window.
+
+[[hide-cursor]]
+=== hide-cursor
+hide cursor.
 
 [[hint]]
 === hint
@@ -1317,6 +1326,10 @@ Set a mark at the current scroll position in the current tab.
 ==== positional arguments
 * +'key'+: mark identifier; capital indicates a global mark
 
+[[show-cursor]]
+=== show-cursor
+show cursor.
+
 [[spawn]]
 === spawn
 Syntax: +:spawn [*--userscript*] [*--verbose*] [*--output*] [*--output-messages*] [*--detach*] 'cmdline'+
@@ -1571,6 +1584,18 @@ Show the source of the current page in a new tab.
 [[window-only]]
 === window-only
 Close all windows except for the current one.
+
+[[window-pin]]
+=== window-pin
+pin window to stay always on top.
+
+[[window-pip]]
+=== window-pip
+move window to PIP position.
+
+[[window-unpin]]
+=== window-unpin
+unpin window.
 
 [[yank]]
 === yank
