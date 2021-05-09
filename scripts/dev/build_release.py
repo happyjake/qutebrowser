@@ -234,7 +234,7 @@ def patch_mac_app():
     core_target = os.path.join(*[os.pardir] * 7, 'MacOS', 'QtWebEngineCore')
     os.symlink(core_target, core_lib)
 
-    framework_resource_path = os.path.join(framework_path, 'Resources')
+    framework_resource_path = os.path.join(framework_path, 'Versions', '5', 'Resources')
     for name in os.listdir(framework_resource_path):
         file_path = os.path.join(framework_resource_path, name)
         target = os.path.join(*[os.pardir] * 5, name)
@@ -286,7 +286,11 @@ def build_mac(*, gh_token, debug):
     utils.print_title("Updating 3rdparty content")
     update_3rdparty.run(ace=False, pdfjs=True, fancy_dmg=False, gh_token=gh_token)
     utils.print_title("Building .app via pyinstaller")
-    call_tox('pyinstaller-64', '-r', debug=debug)
+    # call_tox('pyinstaller-64', '-r', debug=debug)
+    env = os.environ.copy()
+    subprocess.run(
+        "pyinstaller --noconfirm misc/qutebrowser.spec".split(" "),
+        env=env, check=True)
     utils.print_title("Patching .app")
     patch_mac_app()
     utils.print_title("Building .dmg")
