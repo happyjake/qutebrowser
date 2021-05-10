@@ -234,7 +234,8 @@ def patch_mac_app():
     core_target = os.path.join(*[os.pardir] * 7, 'MacOS', 'QtWebEngineCore')
     os.symlink(core_target, core_lib)
 
-    framework_resource_path = os.path.join(framework_path, 'Versions', '5', 'Resources')
+    framework_resource_path = os.path.join(framework_path, 'Resources')
+    # framework_resource_path = os.path.join(framework_path, 'Versions', '5', 'Resources')
     for name in os.listdir(framework_resource_path):
         file_path = os.path.join(framework_resource_path, name)
         target = os.path.join(*[os.pardir] * 5, name)
