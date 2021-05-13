@@ -16,13 +16,15 @@ MarkupSafe = "^1.1.1"
 Pygments = "^2.9.0"
 typing-extensions = "^3.10.0"
 zipp = "^3.4.1"
+PyQt5-sip = "^12.8.1"
+fastapi = "^0.65.1"
+uvicorn = "^0.13.4"
 
 [tool.poetry.dev-dependencies]
 requests = "^2.25.1"
 asciidoc = "^10.0.0-alpha.2"
 Pygments = "^2.9.0"
 tox = "^3.23.1"
-pyinstaller = "^4.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
