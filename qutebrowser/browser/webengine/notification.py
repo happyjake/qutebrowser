@@ -66,6 +66,7 @@ if TYPE_CHECKING:
 from qutebrowser.config import config
 from qutebrowser.misc import objects
 from qutebrowser.utils import qtutils, log, utils, debug, message, version
+from qutebrowser.qt import sip
 
 
 bridge: Optional['NotificationBridgePresenter'] = None
@@ -477,7 +478,9 @@ class SystrayNotificationAdapter(AbstractNotificationAdapter):
     @pyqtSlot(int)
     def on_web_closed(self, notification_id: int) -> None:
         assert notification_id == self.NOTIFICATION_ID, notification_id
-        self._systray.hide()
+        if not sip.isdeleted(self._systray):
+            # This can get called during shutdown
+            self._systray.hide()
 
 
 class MessagesNotificationAdapter(AbstractNotificationAdapter):
@@ -712,10 +715,14 @@ class DBusNotificationAdapter(AbstractNotificationAdapter):
         # https://github.com/KDE/plasma-workspace/blob/v5.21.4/libnotificationmanager/server_p.cpp#L227-L237
         # Created too many similar notifications in quick succession
         "org.freedesktop.Notifications.Error.ExcessNotificationGeneration",
+
+        # From https://crashes.qutebrowser.org/view/b8c9838a - probably when
+        # notification daemon crashes?
+        "org.freedesktop.DBus.Error.Spawn.ChildSignaled",
     }
 
     def __init__(self, parent: QObject = None) -> None:
-        super().__init__(bridge)
+        super().__init__(parent)
         assert _notifications_supported()
 
         if utils.is_windows:
